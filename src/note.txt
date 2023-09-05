@@ -1,0 +1,38 @@
+         <div key={i} className='tg'>
+         <p className='f-more'>...</p>
+         <div className='more hide'>
+             <div className="func">
+               <p>delete </p>
+               <button className='delete img-btn'><img src={remove} alt="" /></button>
+             </div>
+             <div className="func">
+               <p>edit</p>
+               <button className='edit img-btn'><img src={edit} alt="" /></button>
+             </div>
+         </div>
+         <div className='task'>
+           <p id='task-name' type="text" placeholder='add task name'>{JSON.parse(localStorage.getItem('tgObj'))[i].tName}</p>
+           <p id='task-disc' type="text" placeholder='what is the task?' >{JSON.parse(localStorage.getItem('tgObj'))[i].tDisc}</p>
+           <div className='timer'>
+             <img src={timer} alt=""  />
+             <p type="Number" minLength={1} placeholder='add a due date' ><span>Due in </span>{JSON.parse(localStorage.getItem('tgObj'))[i].dueDate}<span>day(s)</span></p>
+           </div>
+         </div>  
+       </div>
+
+       <div id='form' className='cover'>
+        <div className='form'>
+          <h2>create new task</h2>
+          <input type="text" placeholder='add task name'  onChange ={(e) =>{setTName((tName) => e.target.value)}}/>
+          <input type="text" placeholder='what us the task?'  onChange ={(e) =>{setTDisc((tDisc) => e.target.value)}}/>
+          <input type="text" placeholder='set duedate (days)' onChange={setDuDate((dueDate),(e) => e.target.value)}/>
+          <div className='btn-div'>
+          <button className='f-btn submit'  onClick={addTask}>submit</button>
+          <button className=' f-btn clear'  onClick={clearTask}>Clear</button></div>
+        </div>
+        </div>
+
+        localStorage.removeItem('date')
+  localStorage.removeItem('tgName')
+  localStorage.removeItem('tName')
+  localStorage.removeItem('tDisc')
